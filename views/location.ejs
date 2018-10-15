@@ -1,0 +1,98 @@
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>data retrieval</title>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+  </head>
+  <body>
+    <nav class="navbar">
+      <a class="navbar-brand" href="#"><img src="images/logo.png" style="height:40px">RAKSHAK</a>
+      <ul class="nav navbar-nav navbar-right">
+        <li ><a href="#"><i class="fa fa-user" aria-hidden="true"></i> Logout</a></li>
+      </ul>
+    </nav>
+  <div class="row">
+  	<div class="col-md-2">
+  		<ul class="leftCol">
+  			<li class="item active" ><a href="#">Live Location</a></li>
+  			<li class="item"><a href="#">graphs</a></li>
+  			<li class="item"><a href="#">Contacts</a></li>
+  		</ul>
+  	</div>
+    <div class="col-md-10" id = "mapPlot"></div>
+  </div>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="contact">+918004677436</div>
+      <div class= "name">SHIVAM DIXIT</div>
+    </div>
+    <div class="col-md-4">
+      <div class="contact">+919626333680</div>
+      <div class= "name">ADITYA DEWANI</div>
+    </div>
+    <div class="col-md-4">
+      <div class="contact">+917530002293</div>
+      <div class= "name">SUSHMA</div>
+    </div>
+  </div>
+    <script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js">
+    </script>
+    <script src="js/fire.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+    function initMap(){
+//--------------------------DATABASE CONNECTION---------------------------
+      var database  = firebase.database();
+      var ref = database.ref().child('location');
+      ref.on('value',function(data){
+        var contacts = data.val();
+        var keys = Object.keys(contacts);
+        console.log(keys);
+        console.log(contacts);
+        var array = markers(keys,database,ref);
+        console.log(array);
+
+//----------------MAP-PART-FOR ALERTS------------------
+        var map = new google.maps.Map(document.getElementById("mapPlot"),{
+          center: {lat:12.9692 ,lng:79.1559},
+          zoom:15
+        });
+        for(var i = 0;i<array.length;i++){
+          var marker = new google.maps.Marker({
+                  position: array[i],
+                  map: map,
+                  animation:google.maps.Animation.BOUNCE
+                });
+              }
+
+
+
+//---------------------------- LOCATION RETRIEVING---------------------------
+        function markers(keys,database,ref){
+          arr=[];
+          for(var i = 0;i<keys.length;i++){
+            ref.child(keys[i]).on('value',function(data){
+                var local = data.val();
+                if(local.c == true)
+                {
+                  arr.push({
+                    lat:parseFloat(local.a),
+                    lng:parseFloat(local.b)
+                  })
+                }
+              })
+            }
+            return arr;
+        }
+      });
+
+    }
+
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMYOAdmxuJ6jesIJxUieJl0Fx9n5Ap1UQ&callback=initMap"
+    async defer></script>
+
+  </body>
+</html>

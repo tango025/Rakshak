@@ -1,0 +1,159 @@
+@import url(https://fonts.googleapis.com/css?family=Dosis:300|Lato:300,400,600,700|Roboto+Condensed:300,700|Open+Sans+Condensed:300,600|Open+Sans:400,300,600,700|Maven+Pro:400,700);
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+* {
+  box-sizing: border-box;
+  outline: none;
+}
+
+html{
+  background: #a79268;
+}
+body{
+  background: #a79268;
+}
+.background-image {
+  background-image: url('../images/landing12.jpg');
+  background-size: cover;
+  display: block;
+  filter: blur(5px);
+  -webkit-filter: blur(5px);
+  height: 800px;
+  left: 0;
+  position: fixed;
+  right: 0;
+  z-index: 1;
+}
+
+nav{
+  z-index: 3;
+  line-height: 2;
+}
+.navbar{
+  padding: 0 25px;
+  font-family: "Montserrat";
+  font-weight: bold;
+}
+.navbar-light .navbar-brand{
+  color:white;
+}
+.navbar,.bg-light{
+    background: transparent !important;
+  }
+.active{
+    border-bottom: 3px solid rgba(5, 5 , 5, 0.8);
+    background-color: rgba(10, 10, 10, 0.2);
+  }
+
+  a{
+    color:white;
+  }
+  a:hover{
+    color: rgba(10, 10, 10, 0.2);
+
+  }
+.content {
+  position: absolute;
+  top: 0; bottom: 0; left: 0; right: 0;
+  width: 500px;
+  height: 500px;
+
+  background-color: rgba(10, 10, 10, 0.5);
+  margin: auto auto;  
+  padding: 20px;
+  z-index: 3;
+  border-radius: 4px; 
+    
+  }
+  .content .title{
+    font-family: "Open Sans",Sans-serif;
+    text-align: center;
+    font-weight: 600;
+    font-size: 2.0rem;
+    padding-bottom: 30px;
+    color: white;
+  }
+  input {
+    width: 100%;
+    font-size: 1.2rem;
+    font-family: "Open Sans";
+    
+    margin: 10px 0px;
+    
+    border: none;
+    padding: 10px;
+    border-radius: 4px;
+  }
+  label{
+    color:white;
+  }
+  button {
+    width: 100%;
+    font-size: 1.1rem;
+    padding: 10px;
+    margin: 20px 0px;
+    border-radius: 4px;
+    background-color: #6CCC54;
+    color: white;
+    border: none;
+    cursor: pointer;
+    outline: none;
+  }
+  button:focus{
+    outline: none;
+  }
+  .content .social{
+    width: 100%;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+
+  }
+  .content .social span{
+    display: inline-block;
+    margin: 0 20px;
+    vertical-align: baseline;
+    color :white;
+  }
+  .content .social span::before,
+  .content .social span::after{
+    content: "";
+    display: block;
+    position: absolute;
+    width:80px;
+    top:0.6em;
+    border:1px white solid;
+    
+      }
+  .content .social span::before{
+    right:75%;
+  } 
+  .content .social span::after{
+    left:75%;
+  } 
+
+  .content .handle{
+    width:100%;
+    display: block;
+    clear: both;
+  }   
+  .content .handle .tab{
+    float: left;
+    width:30%;
+    margin: 50px 5px;
+    color:white;
+    padding: 10px 5px;
+    height: 40px;
+    border-radius: 4px;
+    text-align: center;
+
+  }
+  .content .handle .fb{
+    background-color: #4464B2; 
+  }
+  .content .handle .tweet{
+    background-color: #28A9E0; 
+  }
+  .content .handle .g{
+    background-color: #DA4735; 
+  }
+

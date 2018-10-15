@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<!-- FONT AWESOME CDN -->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+<!-- BOOTSTRAP CDN -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<!-- CSS FILE -->
+<link rel="stylesheet" type="text/css" href="css/login.css">
+</style>
+
+</head>
+<body>
+<div class="background-image">
+</div>
+<nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#"><img src="images/logo.png" style="height:40px">RAKSHAK</a>
+  	<ul class="nav justify-content-end">
+  		<li class="nav-item">
+    		<a class="nav-link active" href="#">Log In</a>
+  		</li>
+  		<li class="nav-item">
+    		<a class="nav-link " href="#">Contact Us</a>
+  		</li>
+	</ul>
+</nav>
+
+<form class="content" method = "POST">
+
+	<div class="title">Log In</div>
+	<input type="text" placeholder ="Username" id = "email" name = "email"><br>
+	<label></label>
+	<input type="password" placeholder ="Password" id = "pass"><br>
+	<button  onclick="e_login()">Log In</button>
+	<div class="social">
+		<span> or log in with social media</span>
+	</div>
+	<div class="handle">
+		<button class="fb tab"><i class="fab fa-facebook-f"> Facebook</i></button>
+		<button class="tweet tab"><i class="fab fa-twitter"> Twitter</i></button>
+		<button class="g tab"><i class="fab fa-google-plus-g"></i> Google</button>
+	</div>
+
+</form>
+
+
+<script src="https://www.gstatic.com/firebasejs/5.5.3/firebase.js"></script>
+
+<script>
+  // Initialize Firebase
+  var config = {
+    apiKey: "AIzaSyBlNAlMOntxrjQkYuZeU_2YYSjWiNTAKNw",
+    authDomain: "rakshak-safety-for-women.firebaseapp.com",
+    databaseURL: "https://rakshak-safety-for-women.firebaseio.com",
+    projectId: "rakshak-safety-for-women",
+    storageBucket: "rakshak-safety-for-women.appspot.com",
+    messagingSenderId: "332627518478"
+  };
+  firebase.initializeApp(config);
+
+	function e_login(){
+		var email = document.getElementById("email").value;
+		var password = document.getElementById('pass').value;
+
+		firebase.auth().signInWithEmailAndPassword(email,password)
+		.catch(function(error){
+			console.log(error);
+		});
+
+	}
+	firebase.auth().onAuthStateChanged(function(user){
+			if(user){
+				console.log(user);
+			} else {
+				console.log("not signed in")
+			}
+		});
+
+</script>
+</body>
+</html>

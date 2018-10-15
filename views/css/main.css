@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat');
+*{
+	padding: 0;
+	box-sizing: border-box;
+  color:black;
+}
+
+.navbar{
+	background:#3c3cc0;
+}
+
+.navbar a{
+	color:#f2f0f3;
+	font-family: "Montserrat";
+	font-weight: bold;
+}
+.row .leftCol{
+	background: #f2f0f3;
+}
+.row .leftCol .item{
+	height: 60px;
+	border-right: 3px solid #3c3cc0;
+	text-align: center;
+	list-style: none;
+	/*margin-top: 10px;*/
+
+}
+.row .leftCol .active{
+  border-right:none;
+  /* border-bottom: none; */
+}
+.col-md-2{
+padding-right: 0;
+}
+
+a{
+  color:#3c3cc0;
+}
+#mapPlot{
+	height: 400px;
+}
+
+.row .col-md-4 .contact{
+	border:2px solid #3c3cc0;
+	border-radius:4px;
+	font-family: "Montserrat";
+	font-weight:bold;
+	height:75px;
+	background-color: #f2f0f3;
+	padding :15px 0;
+	font-size:36px;
+}
+.row .col-md-4{
+	margin-top:60px ;
+	width:100px;
+	height: 150px;
+	text-align: center;
+}
+.row .col-md-4 .name{
+	border:2px solid #3c3cc0;
+	border-radius:4px;
+	font-family: "Montserrat";
+	background-color: #f2f0f3;
+}
