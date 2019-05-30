@@ -9,8 +9,6 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <!-- CSS FILE -->
 <link rel="stylesheet" type="text/css" href="css/login.css">
-</style>
-
 </head>
 <body>
 <div class="background-image">
@@ -34,6 +32,7 @@
 	<label></label>
 	<input type="password" placeholder ="Password" id = "pass"><br>
 	<button  onclick="e_login()">Log In</button>
+	<button onclick="signOut()">Sign Out</button>
 	<div class="social">
 		<span> or log in with social media</span>
 	</div>
@@ -72,7 +71,8 @@
 	}
 	firebase.auth().onAuthStateChanged(function(user){
 			if(user){
-				console.log(user);
+				console.log(user.uid);
+				window.open("/a.html");
 			} else {
 				console.log("not signed in")
 			}

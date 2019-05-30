@@ -49,7 +49,7 @@ app.get("/login",function(req,res){
 	res.render("login.ejs");
 });
 
-app.post("/login",isAuthenticated,function(req,res){
+app.post("/login",function(req,res){
 	var user = req.body.email;
 	// console.log(firebase.auth().currentUser.email);
 	res.render("location.ejs",{ data:user});
